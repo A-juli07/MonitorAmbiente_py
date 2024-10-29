@@ -45,4 +45,4 @@ while True:
     except OSError as e:
         print("Erro ao ler o sensor:", e)
     
-    time.sleep(2)
+    time.sleep(120)
