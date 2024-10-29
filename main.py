@@ -5,7 +5,7 @@ import time
 import network
 
 def conecta_wifi():
-    ssid = 'C DATOS'
+    ssid = 'CDATOS'
     password = 'SALA-104'
 
     station = network.WLAN(network.STA_IF)
