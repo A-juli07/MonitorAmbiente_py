@@ -28,7 +28,7 @@ def thingspeak(temperatura, umidade, rele_estado):
         url = "https://api.thingspeak.com/update?api_key=R30GJOUKAHCNAVUI&field1={}&field2={}".format(temperatura, umidade)
         response = urequests.get(url)
         response.close()
-        print("Datos enviados a ThingSpeak: Temp={}°C, humedad={}%".format(temperatura, umidade))
+        print("Datos enviados a ThingSpeak: Temp={}°C, Humedad={}%".format(temperatura, umidade))
     except Exception as e:
         print("Error al enviar datos a ThingSpeak:", e)
 
