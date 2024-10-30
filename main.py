@@ -13,10 +13,10 @@ def conecta_wifi():
     station.connect(ssid, password)
 
     while not station.isconnected():
-        print("Conectando ao Wi-Fi...")
+        print("Conectando al Wi-Fi...")
         time.sleep(1)
 
-    print("Conectado ao Wi-Fi com sucesso!")
+    print("¡Conectado al Wi-Fi con éxito!")
 
 conecta_wifi()
 
@@ -28,9 +28,9 @@ def thingspeak(temperatura, umidade, rele_estado):
         url = "https://api.thingspeak.com/update?api_key=R30GJOUKAHCNAVUI&field1={}&field2={}".format(temperatura, umidade)
         response = urequests.get(url)
         response.close()
-        print("Dados enviados para o ThingSpeak: Temp={}°C, Umidade={}%".format(temperatura, umidade))
+        print("Datos enviados a ThingSpeak: Temp={}°C, humedad={}%".format(temperatura, umidade))
     except Exception as e:
-        print("Erro ao enviar dados ao ThingSpeak:", e)
+        print("Error al enviar datos a ThingSpeak:", e)
 
 while True:
     try:
@@ -38,11 +38,11 @@ while True:
         temperatura = sensor.temperature()
         umidade = sensor.humidity()
         
-        print("Temperatura: {}°C, Umidade: {}%".format(temperatura, umidade))
+        print("Temperatura: {}°C, Humedad: {}%".format(temperatura, umidade))
         
         thingspeak(temperatura, umidade)
         
     except OSError as e:
-        print("Erro ao ler o sensor:", e)
+        print("Error al leer el sensor:", e)
     
     time.sleep(120)
