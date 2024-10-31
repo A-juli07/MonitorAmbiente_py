@@ -22,7 +22,7 @@ conecta_wifi()
 
 sensor = dht.DHT11(machine.Pin(4))
 
-def thingspeak(temperatura, umidade, rele_estado):
+def thingspeak(temperatura, umidade, hidrogeno):
     try:
         
         url = "https://api.thingspeak.com/update?api_key=R30GJOUKAHCNAVUI&field1={}&field2={}".format(temperatura, umidade)
