@@ -25,10 +25,10 @@ sensor = dht.DHT11(machine.Pin(4))
 def thingspeak(temperatura, umidade, hidrogeno):
     try:
         
-        url = "https://api.thingspeak.com/update?api_key=R30GJOUKAHCNAVUI&field1={}&field2={}".format(temperatura, umidade)
+        url = "https://api.thingspeak.com/update?api_key=R30GJOUKAHCNAVUI&field1={}&field2={}&field3={}".format(temperatura, umidade, hidrogeno)
         response = urequests.get(url)
         response.close()
-        print("Datos enviados a ThingSpeak: Temp={}°C, Humedad={}%".format(temperatura, umidade))
+        print("Datos enviados a ThingSpeak: Temp={}°C, Humedad={}%, Hidrogeno={}".format(temperatura, umidade, hidrogeno))
     except Exception as e:
         print("Error al enviar datos a ThingSpeak:", e)
 
@@ -38,9 +38,9 @@ while True:
         temperatura = sensor.temperature()
         umidade = sensor.humidity()
         
-        print("Temperatura: {}°C, Humedad: {}%".format(temperatura, umidade))
+        print("Temperatura: {}°C, Humedad: {}%, Hidrogeno={}".format(temperatura, umidade, hidrogeno))
         
-        thingspeak(temperatura, umidade)
+        thingspeak(temperatura, umidade, hidrogeno)
         
     except OSError as e:
         print("Error al leer el sensor:", e)
